@@ -1,0 +1,23 @@
+%%
+%% Author: bartek.rydz
+%% 02.07.2018
+%%
+% Preamble
+\documentclass[8pt,twocolumn]{extbook}
+
+% Package
+\usepackage{chwyty}
+
+% Document
+\begin{document}
+	\input{titlepage}
+	\onecolumn
+	\begin{multicols*}{2}
+		\tableofcontents
+	\end{multicols*}
+	\twocolumn
+	\thispagestyle{empty}
+	\cleardoublepage
+	\input{main.tex}
+	\input{ToC_ABC_chwyty_twocol.tex}
+\end{document}

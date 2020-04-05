@@ -23,7 +23,7 @@ potrzebujemy co najmniej instalacji LaTeXa, którego można pobrać tu: https://
 Pod Windowsem ja korzystam z MiKTeX i najlepiej będzie się w tym względzie unifikować, różne implementacje mogą mieć swoje smaczki.
 Instalacja sprowadza sie do klikania "dalej" :)
 W MiKTeXie jest też dostępny podstawowy edytor LaTeXa, ale zwykły notatnik wystarczy, polecam natomiast Notepad++ jako prostą alternatywę.
-Jeżeli już mamy zainstalowanego LaTeXa, wystarczy otworzyć cmd i wpisać pdflatex (ścieżka do pliku)\main.tex
+Jeżeli już mamy zainstalowanego LaTeXa, wystarczy otworzyć cmd i wpisać pdflatex (ścieżka do pliku)\Spiewnik_xxx.tex, zamiast xxx podając wybraną wersję śpiewnika.
 Rzecz jasna najpierw trzeba ten projekt gdzieś na dysk zassać :)
 
 Do współtworzenia projektu potrzebny nam będzie git, dostępny do pobrania tu: https://git-scm.com/downloads
