@@ -2,7 +2,7 @@
 
 namespace SonglistGenerator
 {
-    public class Logger
+    public class ConsoleLogger
     {
         public void WriteLine(string message)
         {

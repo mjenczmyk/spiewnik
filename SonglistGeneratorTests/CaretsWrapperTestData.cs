@@ -23,6 +23,7 @@ namespace SonglistGeneratorTests
             yield return new object[] { "13 multiple weird input", multipleWeirdInput, multipleWeirdExpected };
             yield return new object[] { "14 random song", randomSongInput, randomSongExpected };
             yield return new object[] { "15 chords parentheses", chordsInParenthesesInput, chordsInParenthesesExpected };
+            yield return new object[] { "16 already wrapped text", randomSongExpected, randomSongExpected };
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

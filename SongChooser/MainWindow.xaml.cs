@@ -10,8 +10,8 @@ namespace SongChooser
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Logger logger;
-        private Songlist songlist;
+        private ConsoleLogger logger;
+        private Generator generator;
         private List<DisplaySong> displayedSongs;
 
         public MainWindow()
@@ -21,20 +21,17 @@ namespace SongChooser
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.logger = new Logger();
-            this.songlist = new Songlist(logger);
-            this.displayedSongs = new List<DisplaySong>();
+            this.logger = new ConsoleLogger();
         }
 
         private void LoadFolder(object sender, RoutedEventArgs e)
         {
-            this.displayedSongs = new List<DisplaySong>();
-            var folders = Directory.GetDirectories(folderPath.Text);
-            songlist.CreateListOfChapters(folders);
-            songlist.CreateListOfSongs();
-            songlist.Initialize();
+            generator = new Generator(this.logger, folderPath.Text) { MinimumAllowedChapterSize = (int)minimumAllowedChapterSize.Value };
+            generator.Initialize();
 
-            foreach (var chapter in songlist.Chapters)
+            this.displayedSongs = new List<DisplaySong>();
+
+            foreach (var chapter in this.generator.Chapters)
             {
                 foreach (var song in chapter.Songs)
                 {
@@ -69,12 +66,12 @@ namespace SongChooser
 
         private void GenerateSongbook(object sender, RoutedEventArgs e)
         {
-            foreach (var chapter in songlist.Chapters)
+            foreach (var chapter in this.generator.Chapters)
             {
                 chapter.Songs.RemoveAll(x => this.displayedSongs.Exists(y => !y.Print && y.Path == x.FilePath));
             }
-            songlist.ConsolidateChapters((int)minimumAllowedChapterSize.Value);
-            songlist.ReplaceMainMasters(folderPath.Text);
+
+            this.generator.Generate();
         }
     }
 }

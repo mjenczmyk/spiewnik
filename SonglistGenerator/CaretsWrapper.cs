@@ -10,6 +10,12 @@ namespace SonglistGenerator
 
         public static string WrapCarets(string textToWrap)
         {
+            if (textToWrap.Contains(startWrap))
+            {
+                // carets in song are already wrapped, so returning input
+                return textToWrap;
+            }
+
             var caretIndexes = new List<int>();
             for (int i = textToWrap.IndexOf('^'); i > -1; i = textToWrap.IndexOf('^', i + 1))
             {

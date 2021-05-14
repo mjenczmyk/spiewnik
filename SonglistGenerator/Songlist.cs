@@ -7,11 +7,11 @@ namespace SonglistGenerator
 {
     public class Songlist
     {
-        private Logger logger;
+        private ConsoleLogger logger;
 
         public IEnumerable<Chapter> Chapters { get; private set; }
 
-        public Songlist(Logger logger)
+        public Songlist(ConsoleLogger logger)
         {
             this.logger = logger;
         }
