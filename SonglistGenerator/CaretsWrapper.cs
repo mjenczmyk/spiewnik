@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SonglistGenerator
@@ -31,6 +32,7 @@ namespace SonglistGenerator
                 { 
                     textToWrap.IndexOf(' ', caret),
                     textToWrap.IndexOf('\\', caret),
+                    textToWrap.IndexOf(Environment.NewLine, caret),
                     textToWrap.IndexOf('\n', caret),
                     textToWrap.IndexOf(')', caret),
                 }.Where(x => x >= 0).Min();
@@ -41,6 +43,7 @@ namespace SonglistGenerator
                 {
                     textToWrap.LastIndexOf(' ', caret),
                     textToWrap.LastIndexOf('(', caret),
+                    textToWrap.LastIndexOf('\t', caret),
                 }.Where(x => x >= 0).Max();
 
                 textToWrap = textToWrap.Insert(startOfBracedSection + 1, startWrap);
