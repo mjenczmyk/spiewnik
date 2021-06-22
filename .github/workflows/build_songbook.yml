@@ -50,20 +50,38 @@ jobs:
         name: Songbook v2.0 r${{github.run_number}}_source
         path: Songbook v2.0 r${{github.run_number}}
       
-    - name: Compile songbook
+    - name: Compile songbook A4
       uses: xu-cheng/latex-action@v2
       with:
         root_file: "Spiewnik_chwyty.tex"
         working_directory: "Songbook v2.0 r${{github.run_number}}"
         
-    - name: Upload generated PDF
+    - name: Compile songbook A5
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: "Spiewnik_chwyty_a5.tex"
+        working_directory: "Songbook v2.0 r${{github.run_number}}"
+        
+    - name: Upload generated PDF A4
       uses: actions/upload-artifact@v2
       with:
         name: Songbook v2.0 r${{github.run_number}}_pdf
         path: Songbook v2.0 r${{github.run_number}}/Spiewnik_chwyty.pdf
         
-    - name: Upload generated PDF (output log)
+    - name: Upload generated PDF A4 (output log)
       uses: actions/upload-artifact@v2
       with:
         name: Songbook v2.0 r${{github.run_number}}_pdf
         path: Songbook v2.0 r${{github.run_number}}/Spiewnik_chwyty.log
+        
+    - name: Upload generated PDF A5
+      uses: actions/upload-artifact@v2
+      with:
+        name: Songbook v2.0 r${{github.run_number}}_pdf
+        path: Songbook v2.0 r${{github.run_number}}/Spiewnik_chwyty_a5.pdf
+        
+    - name: Upload generated PDF A5 (output log)
+      uses: actions/upload-artifact@v2
+      with:
+        name: Songbook v2.0 r${{github.run_number}}_pdf
+        path: Songbook v2.0 r${{github.run_number}}/Spiewnik_chwyty_a5.log
